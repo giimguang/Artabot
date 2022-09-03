@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --primary-color: #FFFFFF;
+    --secondary-color: #010b13;
+    --background-color: #F6F6F6;
+    --hover-color: #F0F2F5;
+    --icons-color: #444444;
+    --red-color: red;
+
+    --blue-color: #325AE7;
+    --opacity-bg-color: #0000001e;
+
+    --nav-top-height: 55px;
+    --border: 1px solid rgba(221, 221, 221, 0.5);
+    --box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+}
+
+/* Global */
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+h1,h2,h3,h4,h5,h6,p{
+    color: var(--secondary-color);
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+.dark{
+    --primary-color: #121212;
+    --secondary-color: #FFFFFF;
+    --background-color: #020202;
+    --hover-color: #5C5C5C;
+    --icons-color: #FFFFFF;
+
+    --box-shadow: 0 1px 3px rgba(247, 247, 247, 0.1);
+}
