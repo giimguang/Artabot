@@ -1,0 +1,21 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% block title %}ThankYou{% endblock %}
+
+{% block nav-top %}
+    {% include 'components/header.html' %}
+{% endblock nav-top %}
+
+{% block container %}
+    <div id="container">
+        <div id="contain">
+            <div class="card flex-center">
+                <div class="flex-column">
+                    <h3 class="f-600 fz-50">Thank You!</h3>
+                    <p>Your report has been received</p>
+                    <a href="/" class="blue-clr">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

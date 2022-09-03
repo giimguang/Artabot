@@ -1,0 +1,46 @@
+{% extends 'components/base.html' %}
+
+{% block title %}Thai{% endblock %}
+
+{% block nav-top %}
+    {% include 'components/header.html' %}
+{% endblock nav-top %}
+
+{% block container %}
+<div id="container">
+    <div id="contain">
+        <div class="card">
+            <div class="languages-menu">
+                {% include 'components/lang-menu.html' %}
+            </div>
+        </div>
+        {% for Post in Posts %}
+            <div class="card">
+                <a href="{% url 'post' Post.id %}" class="card-link">
+                    <div class="card-img">
+                        <img src="{{Post.image.url}}">
+                    </div>
+                    <div class="card-detial">
+                        <h2 class="card-title f-500 {{Post.language}}" style="font-size: 18px">{{Post.title}}</h2>
+                        <div class="card-preview {{Post.language}}">
+                            {{Post.lyric|linebreaks}}
+                        </div>
+                        <div class="tags">
+                            <span class="tag">
+                                <p>{{Post.tag}}</p>
+                            </span>
+                            <span class="tag">
+                                <p>{{Post.language}}</p>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {%empty%}
+            <div class="card flex-center">
+                {% include 'components/errors/no-post-available.html' %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock  %}

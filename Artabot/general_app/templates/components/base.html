@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock  %} | Artabot</title>
+    <link rel="stylesheet" href="{% static 'asset/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/site.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'asset/images/app-brand-icon.svg' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    {% block nav-top %}
+    
+    {% endblock  %}
+    {% include 'components/nav-side.html' %}
+    <main id="main">
+        {% block container %}
+            
+        {% endblock  %}
+        {% include 'components/page-side.html' %}
+    </main>
+    <script type="text/javascript" src="{% static 'asset/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'asset/js/functions.js' %}"></script>
+    <script type="text/javascript" src="{% static 'asset/js/report.js' %}"></script>
+</body>
+</html>
+
+
+

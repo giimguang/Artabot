@@ -1,0 +1,34 @@
+{% extends 'components/base.html' %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block nav-top %}
+    {% include 'components/post-header.html' %}
+{% endblock nav-top %}
+
+{% block container %}
+    <div id="container" class="{{post.language}}">
+        <div id="contain">
+            <div class="card">
+               <h1 class="card-title f-500 fz-14">Song: {{post.title}}</h1>
+               <div class="post-detial flex mg-20-0">
+                    <div class="card-img post-img">
+                        <img src="{{post.image.url}}">
+                    </div>
+                    <div class="about-post pdl-10 lineH-30">
+                        <p class="fz-15">Artist: {{post.artist}}</p>
+                        {% if post.album is not None %}
+                        <p class="fz-15">Album: {{post.album}}</p>
+                        {% endif %}
+                        {% if post.released is not None %}
+                        <p class="fz-15">Released: {{post.released}}</p>
+                        {% endif %}
+                        <p class="fz-15">Language: {{post.language}}</p>
+                    </div>
+               </div>
+               <h2 class="lyric-title fz-17">Lyric {{post.title}}</h2>
+               <div class="lyric-text fz-17">{{post.lyric|linebreaks}}</div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
