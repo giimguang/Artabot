@@ -8,6 +8,9 @@
     fill: var(--icons-color);
     color: var(--icons-color);
 }
+.scroll{
+    box-shadow: var(--box-shadow);
+}
 .side-icons{
     cursor: pointer;
     width: 20px;
@@ -116,6 +119,9 @@
 }
 .pd-10-0{
     padding: 10px 0;
+}
+.mg-0-10{
+    margin: 0 10px!important;
 }
 .pdl-50{
     padding-left: 50px;

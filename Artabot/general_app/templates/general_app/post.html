@@ -1,10 +1,6 @@
-{% extends 'components/base.html' %}
+{% extends 'components/base_post.html' %}
 
 {% block title %}{{post.title}}{% endblock %}
-
-{% block nav-top %}
-    {% include 'components/post-header.html' %}
-{% endblock nav-top %}
 
 {% block container %}
     <div id="container" class="{{post.language}}">
@@ -21,9 +17,9 @@
                         <p class="fz-15">Album: {{post.album}}</p>
                         {% endif %}
                         {% if post.released is not None %}
-                        <p class="fz-15">Released: {{post.released}}</p>
+                        <p class="fz-15 nowrap">Released: {{post.released}}</p>
                         {% endif %}
-                        <p class="fz-15">Language: {{post.language}}</p>
+                        <p class="fz-15 nowrap">Language: {{post.language}}</p>
                     </div>
                </div>
                <h2 class="lyric-title fz-17">Lyric {{post.title}}</h2>

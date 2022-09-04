@@ -1,3 +1,13 @@
+//Scroll Shadow
+window.addEventListener('scroll',()=>{
+    const navTop = document.getElementById('nav-top');
+    if(scrollY > 1){
+        navTop.classList.add('scroll');
+    }
+    else{
+        navTop.classList.remove('scroll');
+    }
+})
 // Toggle Dark and Light mode
 const body = document.body
 const toggleMode = document.querySelector('.theme-icon')

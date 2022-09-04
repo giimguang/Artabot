@@ -61,7 +61,7 @@ def report(request):
             user_report.email = Email
             user_report.report = Report
             user_report.save()
-            return HttpResponseRedirect('/thank')
-    return render(request,'general_app/report.html')
-def thank(request):
-    return render(request,'general_app/thank.html')
+            # return HttpResponseRedirect('thank')
+            return render(request,'general_app/thank.html')
+    else:
+        return render(request,'general_app/report.html')

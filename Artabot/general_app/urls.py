@@ -11,6 +11,5 @@ urlpatterns=[
     path('languages/chinese/',views.chinese,name="chinese"),
     path('post/<str:post_url>',views.post,name="post"),
     path('result',views.result,name="result"),
-    path('report/',views.report,name="report"),
-    path('thank/',views.thank,name="thank")
+    path('report',views.report,name="report"),
 ]

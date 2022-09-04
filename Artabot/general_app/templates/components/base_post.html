@@ -15,16 +15,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-    {% include 'components/header.html' %}
+    <header id="nav-top">
+        <div id="left">
+            <div class="flex pdl-10" style="font-family: 'Poppins', sans-serif;">
+                <svg class="icons left-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                <p class="fz-20 pdl-10 lineH-30">Back</p>
+            </div>
+            <h1 class="f-500 fz-18 nowrap mg-0-10 {{post.language}}">{{post.title}}</h1>
+        </div>
+    </header>
+    
     {% include 'components/nav-side.html' %}
     <main id="main">
-        <div id="container">
-            <div id="contain">
-                {% block container %}
+        {% block container %}
             
-                {% endblock  %}
-            </div>
-        </div>
+        {% endblock  %}
         {% include 'components/page-side.html' %}
     </main>
     <script type="text/javascript" src="{% static 'asset/js/main.js' %}"></script>
@@ -32,6 +39,3 @@
     <script type="text/javascript" src="{% static 'asset/js/report.js' %}"></script>
 </body>
 </html>
-
-
-

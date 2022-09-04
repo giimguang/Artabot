@@ -2,33 +2,25 @@
 
 {% block title %}Request{% endblock %}
 
-{% block nav-top %}
-    {% include 'components/header.html' %}
-{% endblock nav-top %}
-
 {% block container %}
-<div id="container">
-    <div id="contain">
-        <div class="card">
-            <section class="report-section sec-clr">
-                <h2>Report your problem</h2>
-                <h4 class="f-400 pd-10-0" style="font-size: 15px">To help us to find and fix the issue problem faster</h4>
-                <form action="{% url 'report' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="report-info">
-                        <label for="report_email">Email</label>
-                        <input type="email" name="report_email" id="report_email" class="report_email" placeholder="Email.." autocomplete="off">
-                        <p class="input_error Remail_error"></p>
-                    </div>
-                    <div class="report-info">
-                        <label for="report_text">Report</label>
-                        <textarea type="text" name="report_text" id="report_text" class="report_text" cols="30" rows="10" placeholder="Write you problem here"></textarea>
-                        <p class="input_error Rtxt_error"></p>
-                    </div>
-                    <button class="report-btn" type="submit">Report</button>
-                </form>
-            </section>
-        </div>
+    <div class="card">
+        <section class="report-section sec-clr">
+            <h2>Report your problem</h2>
+            <h4 class="f-400 pd-10-0" style="font-size: 15px">To help us to find and fix the issue problem faster</h4>
+            <form action="{% url 'report' %}" method="POST">
+                {% csrf_token %}
+                <div class="report-info">
+                    <label for="report_email">Email</label>
+                    <input type="email" name="report_email" id="report_email" class="report_email" placeholder="Email.." autocomplete="off">
+                    <p class="input_error Remail_error"></p>
+                </div>
+                <div class="report-info">
+                    <label for="report_text">Report</label>
+                    <textarea type="text" name="report_text" id="report_text" class="report_text" cols="30" rows="10" placeholder="Write you problem here"></textarea>
+                    <p class="input_error Rtxt_error"></p>
+                </div>
+                <button class="report-btn" type="submit">Report</button>
+            </form>
+        </section>
     </div>
-</div>
 {% endblock  %}
