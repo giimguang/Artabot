@@ -107,7 +107,6 @@
 }
 .nowrap{
     white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 /* Padding and Margin */
