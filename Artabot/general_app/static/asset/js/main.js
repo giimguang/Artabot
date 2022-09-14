@@ -48,7 +48,17 @@ Languages.forEach(Language =>{
         Language.classList.add('current-page')
     }
 });
+//search box query
+const searchQuery = document.getElementById('search-query')
+const searchLists = document.querySelector('.search-lists')
+const searchList = document.querySelectorAll('.search-list')
+const searchSubmitBtn = document.querySelector('.search-submit-icon')
 
+searchSubmitBtn.addEventListener('click',(event)=>{
+    if (searchQuery.value.trim().length <= 0){
+        event.preventDefault()
+    }
+})
 // Search and Back Button for mobile
 const searchBtn = document.querySelector('.search-icon')
 const backBtn = document.querySelector('.back-icon')
@@ -56,6 +66,7 @@ const searchBox = document.querySelector('.search-box')
 
 searchBtn.addEventListener('click',function (){
     searchBox.classList.add("opened")
+    searchQuery.focus()
 });
 backBtn.addEventListener('click',function (){
     searchBox.classList.remove("opened")
@@ -80,15 +91,3 @@ CancelBtn.addEventListener('click',function (){
     NavSide.classList.remove("opened")
     NavSideBar.classList.remove("opened")
 });
-
-//search box query
-const searchQuery = document.getElementById('search-query')
-const searchLists = document.querySelector('.search-lists')
-const searchList = document.querySelectorAll('.search-list')
-const searchSubmitBtn = document.querySelector('.search-submit-icon')
-
-searchSubmitBtn.addEventListener('click',(event)=>{
-    if (searchQuery.value.trim().length <= 0){
-        event.preventDefault()
-    }
-})

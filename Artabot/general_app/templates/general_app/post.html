@@ -9,7 +9,7 @@
                <h1 class="card-title f-500 fz-14">Song: {{post.title}}</h1>
                <div class="post-detial flex mg-20-0">
                     <div class="card-img post-img">
-                        <img src="{{post.image.url}}">
+                        <img src="{{post.image.url}}" alt="images">
                     </div>
                     <div class="about-post pdl-10 lineH-30">
                         <p class="fz-15">Artist: {{post.artist}}</p>
@@ -23,7 +23,9 @@
                     </div>
                </div>
                <h2 class="lyric-title fz-17">Lyric {{post.title}}</h2>
-               <div class="lyric-text fz-17">{{post.lyric|linebreaks}}</div>
+               <div class="lyric-text fz-17">
+                    {{post.lyric|safe|linebreaks}}
+                </div>
             </div>
         </div>
     </div>

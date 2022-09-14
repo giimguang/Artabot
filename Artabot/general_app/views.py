@@ -34,15 +34,16 @@ def chinese(request):
     context = {'Posts' : Posts}
     return render(request,'general_app/languages/chinese.html',context)
 def post(request,post_url):
-    post = Post.objects.get(pk=post_url)
-    context = {'post': post}
+    post = Post.objects.get(title = post_url)
+    
+    context = {'post': post }
     return render(request,'general_app/post.html',context)
 def result(request):
     try:
         if request.method == 'GET':
             search_query = request.GET['search-query']
             if search_query != "":
-                Posts = Post.objects.filter(title__icontains=search_query)
+                Posts = Post.objects.filter(title__icontains=search_query) | Post.objects.filter(lyric__icontains=search_query)
             else:
                 Posts = None
             context = {
@@ -61,7 +62,6 @@ def report(request):
             user_report.email = Email
             user_report.report = Report
             user_report.save()
-            # return HttpResponseRedirect('thank')
             return render(request,'general_app/thank.html')
     else:
         return render(request,'general_app/report.html')

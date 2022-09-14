@@ -134,6 +134,7 @@
 }
 
 /* Default Class */
+
 .Khmer{
     font-family: 'Noto Sans Khmer', sans-serif;
 }
@@ -142,4 +143,7 @@
 }
 .Chinese{
     font-family: 'Noto Sans SC', sans-serif;
+}
+.poppins{
+    font-family: 'Poppins', sans-serif !important;
 }

@@ -11,12 +11,12 @@
                 {% csrf_token %}
                 <div class="report-info">
                     <label for="report_email">Email</label>
-                    <input type="email" name="report_email" id="report_email" class="report_email" placeholder="Email.." autocomplete="off">
+                    <input type="email" name="report_email" spellcheck="false" id="report_email" class="report_email" placeholder="Email.." autocomplete="off">
                     <p class="input_error Remail_error"></p>
                 </div>
                 <div class="report-info">
                     <label for="report_text">Report</label>
-                    <textarea type="text" name="report_text" id="report_text" class="report_text" cols="30" rows="10" placeholder="Write you problem here"></textarea>
+                    <textarea type="text" name="report_text" spellcheck="false" id="report_text" class="report_text poppins" cols="30" rows="10" placeholder="Write you problem here"></textarea>
                     <p class="input_error Rtxt_error"></p>
                 </div>
                 <button class="report-btn" type="submit">Report</button>

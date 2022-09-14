@@ -1,13 +1,13 @@
 {% for Post in Posts %}
     <div class="card">
-        <a href="{% url 'post' Post.id %}" class="card-link">
+        <a href="{% url 'post' Post.title %}" class="card-link">
             <div class="card-img">
                 <img src="{{Post.image.url}}">
             </div>
             <div class="card-detial">
                 <h2 class="card-title f-500 {{Post.language}}" style="font-size: 18px">{{Post.title}}</h2>
                 <div class="card-preview {{Post.language}}">
-                    {{Post.lyric|linebreaks}}
+                    {{Post.lyric|safe|linebreaks}}
                 </div>
                 <div class="tags">
                     <span class="tag nowrap">

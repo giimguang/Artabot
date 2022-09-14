@@ -41,3 +41,9 @@ function RText_Valid(){
         return true
     }
 }
+const boldIcon = document.querySelector('.bold-icon')
+boldIcon.onclick = ()=>{
+    let boldTxt = document.querySelector('.report_text')
+    boldTxt.select()
+    document.execCommand('copy')
+}
