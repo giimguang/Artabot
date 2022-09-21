@@ -1,0 +1,150 @@
+<form action="" method="POST" id="editor-form" enctype="multipart/form-data">
+    <!-- Input -->
+    {% csrf_token %}
+    <div class="editor-input">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" class="title" spellcheck="false" autocomplete="off" value="{{post.title}}" style="font-size: 16px">
+        <div class="input-error title-err"></div>
+    </div>
+    <div class="editor-input">
+        <label for="artist">Artist</label>
+        <input type="text" name="artist" id="artist" class="artist" spellcheck="false" autocomplete="off" value="{{post.artist}}" style="font-size: 16px">
+    </div>
+    <div class="editor-input">
+        <label for="album">Album</label>
+        <input type="text" name="album" id="album" class="album" spellcheck="false" autocomplete="off" value="{{post.album}}" style="font-size: 16px">
+    </div>
+    <div class="editor-input">
+        <label for="editor-tag">Tag</label>
+        <input type="text" name="editor-tag" id="editor-tag" class="editor-tag" spellcheck="false" autocomplete="off" value="{{post.tag}}" style="font-size: 16px">
+        <div class="input-error editor-tag-err"></div>
+    </div>
+    <div class="editor-input">
+        <label for="editor-lang">Language</label>
+        <select id="editor-lang" name="editor-lang" style="font-size: 16px">
+            <option class="option" value="{{post.language}}">{{post.language}}</option>
+            <option class="option" value="chinese">chinese</option>
+            <option class="option" value="english">english</option>
+            <option class="option" value="khmer">khmer</option>
+            <option class="option" value="thai">thai</option>
+        </select>
+        <!-- <input type="text" name="editor-lang" id="editor-lang" class="editor-lang" spellcheck="false" autocomplete="off" style="font-size: 16px"> -->
+        <div class="input-error editor-lang-err" value="post.image"></div>
+    </div>
+    <div class="editor-input">
+        <label for="image" class="pd-5 flex-center" style="width: fit-content; background-color: var(--background-color);">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"/>
+            </svg>
+            <span style="padding-left: 5px">Image</span>
+        </label>
+        <input type="file" accept="image/*" name="image" id="image" class="image" style="font-size: 16px" hidden >
+        <small>{{post.image}}</small>
+    </div>
+    
+    <!-- Input -->
+    <div class="toolbar">
+        <ul class="tool-list">
+            <li class="tool">
+                <button aria-label="Left" type="button" data-command='justifyLeft'class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Center" type="button" data-command='justifyCenter' class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Subscript" type="button" data-command='subscript' class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+                        <path d="M12.382 15.863a.6.6 0 01-.845-.082L9.2 12.944 6.863 15.78a.6.6 0 11-.926-.763L8.423 12 5.937 8.98a.6.6 0 11.926-.763L9.2 11.056l2.337-2.837a.6.6 0 01.926.762L9.977 12l2.486 3.018a.6.6 0 01-.081.845zM14.4 14.459a.6.6 0 101.2.002.972.972 0 01.098-.345c.133-.246.4-.316.665-.316.268 0 .537.072.673.32.109.198.127.403.003.598-.184.288-.457.485-.73.682l-.168.122c-.733.548-1.16 1.049-1.408 1.44-.213.333-.497.86-.193 1.224a.6.6 0 00.46.214h3a.6.6 0 000-1.2h-1.942c.291-.323.629-.585.982-.835.387-.273.755-.6 1.01-1.002.175-.274.294-.593.288-.922a2.043 2.043 0 00-.25-.9 1.752 1.752 0 00-.622-.655c-.299-.184-.666-.286-1.103-.286-.437 0-.804.102-1.103.286a1.735 1.735 0 00-.617.66c-.15.277-.236.596-.243.913z"></path>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Superscript" type="button" data-command='superscript' class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+                        <path d="M14.4 6.859v.001a.6.6 0 101.2.002.972.972 0 01.098-.346c.133-.246.4-.316.665-.316.268 0 .537.072.673.32.109.198.127.403.003.598-.184.288-.457.485-.73.682l-.168.122c-.733.548-1.16 1.049-1.408 1.44-.213.333-.497.86-.193 1.224a.6.6 0 00.46.214h3a.6.6 0 000-1.2h-1.942c.291-.323.629-.585.982-.835.387-.273.755-.6 1.01-1.002.175-.274.294-.593.288-.922a2.043 2.043 0 00-.25-.9 1.752 1.752 0 00-.622-.655C17.167 5.102 16.8 5 16.363 5c-.437 0-.804.102-1.103.286a1.735 1.735 0 00-.617.66c-.15.278-.236.596-.243.913zM12.382 15.863a.6.6 0 01-.845-.082L9.2 12.944 6.863 15.78a.6.6 0 11-.926-.762L8.423 12 5.937 8.981a.6.6 0 11.926-.762L9.2 11.056l2.337-2.837a.6.6 0 01.926.762L9.977 12l2.486 3.018a.6.6 0 01-.081.845z"></path>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Bold" type="button"data-command="bold" class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13H8.21zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Italic" type="button" data-command="italic"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Underline" type="button" data-command="underline"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9v1z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Ordered List" type="button" data-command="insertOrderedList"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Unorder List" type="button" data-command="insertUnorderedList"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Create Link" type="button" data-command="createlink" class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Image" type="button" data-command="insertImage" class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                        <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                    </svg>
+                    <!-- <input id="img-input" type="file"> -->
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Indent" type="button" data-command="indent"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </li>
+            <li class="tool">
+                <button aria-label="Outdent" type="button" data-command="outdent"class="tool--btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icons" viewBox="0 0 16 16">
+                        <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div id="text_editor" contenteditable="true" spellcheck="false">{{post.lyric|safe}}</div>
+    <textarea name="text_content" id="text_content" aria-hidden="true" style="display: none"></textarea>
+
+    <input type="submit" id="editor-submit" class="blue-clr" value="Save" style="padding: 5px; margin: 10px 0; border-radius: 2px;">
+</form>

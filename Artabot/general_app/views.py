@@ -1,8 +1,6 @@
-from ast import Break
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Post, User_Report
-
 # Create your views here.
 
 def index(request):
@@ -36,7 +34,7 @@ def chinese(request):
 def post(request,post_url):
     post = Post.objects.get(title = post_url)
     
-    context = {'post': post }
+    context = {'post': post}
     return render(request,'general_app/post.html',context)
 def result(request):
     try:
@@ -56,7 +54,9 @@ def result(request):
 def report(request):
     if request.method == 'POST':
         Email = request.POST.get('report_email')
-        Report = request.POST.get('report_text')
+        Report = request.POST.get('report_detail')
+        print(Email)
+        print(Report)
         if Email and Report:
             user_report = User_Report()
             user_report.email = Email

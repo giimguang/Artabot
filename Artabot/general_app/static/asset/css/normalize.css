@@ -119,6 +119,9 @@
 .pd-10-0{
     padding: 10px 0;
 }
+.pd-5{
+    padding: 5px;
+}
 .mg-0-10{
     margin: 0 10px!important;
 }
@@ -135,15 +138,41 @@
 
 /* Default Class */
 
-.Khmer{
+.khmer{
     font-family: 'Noto Sans Khmer', sans-serif;
 }
-.Thai{
+.thai{
     font-family: 'Prompt', sans-serif;
 }
-.Chinese{
+.chinese{
     font-family: 'Noto Sans SC', sans-serif;
 }
 .poppins{
     font-family: 'Poppins', sans-serif !important;
+}
+
+/* Table design */
+.table_contain {
+    text-align: left;
+    border-collapse: separate;
+    width: 100%;
+    min-width: fit-content;
+}
+.table_contain thead{
+    background-color: #009879;
+}
+.table_contain th,
+.table_contain td{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--secondary-color);
+    width: 100%;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+.table_contain tbody tr:nth-of-type(even){
+    background-color: var(--background-color);
 }

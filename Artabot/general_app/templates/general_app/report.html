@@ -1,6 +1,6 @@
-{% extends 'components/base.html' %}
+{% extends 'general_app/components/base.html' %}
 
-{% block title %}Request{% endblock %}
+{% block title %}Report{% endblock %}
 
 {% block container %}
     <div class="card">
@@ -12,12 +12,12 @@
                 <div class="report-info">
                     <label for="report_email">Email</label>
                     <input type="email" name="report_email" spellcheck="false" id="report_email" class="report_email" placeholder="Email.." autocomplete="off">
-                    <p class="input_error Remail_error"></p>
+                    <p class="input-error report_email_error"></p>
                 </div>
                 <div class="report-info">
-                    <label for="report_text">Report</label>
-                    <textarea type="text" name="report_text" spellcheck="false" id="report_text" class="report_text poppins" cols="30" rows="10" placeholder="Write you problem here"></textarea>
-                    <p class="input_error Rtxt_error"></p>
+                    <label for="report_detial">Report</label>
+                    <textarea type="text" name="report_detail" spellcheck="false" id="report_detial" class="report_detial poppins" cols="30" rows="10" placeholder="Write you problem here"></textarea>
+                    <p class="input-error report_detial_error"></p>
                 </div>
                 <button class="report-btn" type="submit">Report</button>
             </form>

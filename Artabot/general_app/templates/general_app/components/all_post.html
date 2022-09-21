@@ -6,7 +6,7 @@
             </div>
             <div class="card-detial">
                 <h2 class="card-title f-500 {{Post.language}}" style="font-size: 18px">{{Post.title}}</h2>
-                <div class="card-preview {{Post.language}}">
+                <div class="card-preview {{Post.language}} sec-clr">
                     {{Post.lyric|safe|linebreaks}}
                 </div>
                 <div class="tags">
@@ -22,6 +22,6 @@
     </div>
     {%empty%}
         <div class="card flex-center">
-            {% include 'components/errors/no-post-available.html' %}
+            {% include 'general_app/components/errors/no-post-available.html' %}
         </div>
 {% endfor %}

@@ -1,0 +1,36 @@
+{% extends 'editor_app/components/base_admin.html' %}
+{% load static %}
+{% block title %}Editor{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <center style="margin: 10px 0;"><h1 class="f-600">Manage Posts</h1></center>
+        <table class="table_contain" cellspacing ="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>ARTIST</th>
+                    <th>LANGUAGE</th>
+                    <th colspan="2">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.id}}</td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.artist}}</td>
+                        <td>{{post.language}}</td>
+                        <td><a href="{% url 'edit' post.id %}">Edit</a></td>
+                        <td><a href="{% url 'delete' post.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'add' %}" style="background-color: var(--background-color); border-radius: 2px;">
+            <span class="fz-17 pd-5">Add</span>
+        </a>
+    </div>
+{% endblock  %}

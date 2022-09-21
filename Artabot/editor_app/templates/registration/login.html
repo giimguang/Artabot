@@ -1,0 +1,42 @@
+{% extends 'editor_app/components/base_admin.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <!-- <style>
+            #editor-login,#editor-login p{
+                display: flex;
+                flex-direction: column;
+            }
+            #editor-login ul li{
+                font-size: 13px;
+                color: red;
+                list-style: none;
+            }
+            #editor-login input{
+                height: 30px;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                padding: 0 5px;
+                font-size: 15px;
+            }
+        </style> -->
+        <form action="{% url 'login' %}" method="POST" id="editor-login" enctype="multipart/form-data">
+            <!-- Input -->
+            {% csrf_token %}
+            <center><h2>Login</h2></center>
+            <div class="editor-input">
+                <label for="username">Username</label>
+                {{form.username}}
+                <!-- <input type="text" name="username" id="username" class="username" spellcheck="false" autocomplete="off" value="{{post.username}}" style="font-size: 16px"> -->
+            </div>
+            <div class="editor-input">
+                <label for="password">Password</label>
+                {{form.password}}
+                <!-- <input type="text" name="password" id="password" class="password" spellcheck="false" autocomplete="off" value="{{post.password}}" style="font-size: 16px"> -->
+            </div>
+            <input type="submit" id="editor-submit" class="blue-clr" value="Login" style="padding: 5px; margin: 10px 0; border-radius: 2px;">
+        </form>
+    </div>
+{% endblock  %}

@@ -1,0 +1,26 @@
+{% extends 'editor_app/components/base_admin.html' %}
+{% load static %}
+{% block title %}Editor{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <center style="padding: 10px 0;"><h1 class="f-600">Admin Manage</h1></center>
+        <table class="table_contain" cellspacing ="0">
+            <thead>
+                <tr>
+                    <th colspan="2">Database</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Post</td>
+                    <td><a href="{% url 'postdb' %}">View</a></td>
+                </tr>
+                <tr>
+                    <td>User_ reports</td>
+                    <td><a href="#">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock  %}

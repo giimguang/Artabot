@@ -1,0 +1,71 @@
+/* CSS FOR YOUR PROJECT */
+.toolbar{
+    overflow-x: scroll; 
+    overflow-y: hidden;
+    margin: 10px 0;
+}
+u{
+    text-decoration: underline;
+}
+li{
+    margin-left: 15px;
+}
+.tool{
+    margin: 0;
+    margin-right: 5px;
+}
+.tool-list {
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+}
+.tool--btn {
+    cursor: pointer;
+    color: var(--primary-editor-color);
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
+    background-color: var(--hover-color);
+}
+#text_editor{
+    width: 100%;
+    height: 300px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    color: var(--secondary-color);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.list--btn{
+    margin-left: 10px;
+}
+.editor-input{
+    color: var(--secondary-color);
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.editor-input input,.editor-input #editor-lang{
+    margin-right: 10px;
+    padding: 5px;
+    height: 35px;
+    border: 1PX SOLID #ddd;
+    border-radius: 3px;
+    color: var(--secondary-color);
+    background-color: transparent;
+}
+.editor-input .option{
+    background-color: var(--primary-color);
+}
+.show-icon{
+    position: absolute;
+    top: 55%;
+    right: 15px;
+}

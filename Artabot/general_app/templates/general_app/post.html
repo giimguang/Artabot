@@ -1,4 +1,4 @@
-{% extends 'components/base_post.html' %}
+{% extends 'general_app/components/base_post.html' %}
 
 {% block title %}{{post.title}}{% endblock %}
 
@@ -13,17 +13,14 @@
                     </div>
                     <div class="about-post pdl-10 lineH-30">
                         <p class="fz-15">Artist: {{post.artist}}</p>
-                        {% if post.album is not None %}
+                        {% if post.album%}
                         <p class="fz-15">Album: {{post.album}}</p>
-                        {% endif %}
-                        {% if post.released is not None %}
-                        <p class="fz-15 nowrap">Released: {{post.released}}</p>
                         {% endif %}
                         <p class="fz-15 nowrap">Language: {{post.language}}</p>
                     </div>
                </div>
                <h2 class="lyric-title fz-17">Lyric {{post.title}}</h2>
-               <div class="lyric-text fz-17">
+               <div class="lyric-text fz-17 sec-clr">
                     {{post.lyric|safe|linebreaks}}
                 </div>
             </div>

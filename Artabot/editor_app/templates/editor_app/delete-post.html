@@ -1,0 +1,16 @@
+{% extends "editor_app/components/base_admin.html" %}
+{% block title %}Delete{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <center>
+            <h2>Delete Post</h2>
+            <p>Are you sure to remove this Item?</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="pd-5"><a href="/editor/postdb/">Cancle</a></button>
+                <button class="pd-5" type="submit">Delete</button>
+            </form>
+        </center>
+    </div>
+{% endblock  %}
