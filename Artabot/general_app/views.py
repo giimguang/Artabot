@@ -1,6 +1,8 @@
+from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Post, User_Report
+from .forms import UserReportForm
 # Create your views here.
 
 def index(request):
@@ -53,15 +55,17 @@ def result(request):
         return HttpResponseRedirect('/')
 def report(request):
     if request.method == 'POST':
-        Email = request.POST.get('report_email')
-        Report = request.POST.get('report_detail')
-        print(Email)
-        print(Report)
-        if Email and Report:
+        form = UserReportForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
             user_report = User_Report()
-            user_report.email = Email
-            user_report.report = Report
+            user_report.email = data['email']
+            user_report.report = data['report']
             user_report.save()
             return render(request,'general_app/thank.html')
     else:
-        return render(request,'general_app/report.html')
+        form = UserReportForm()
+    context = {
+        'form': form
+    }
+    return render(request,'general_app/report.html',context)

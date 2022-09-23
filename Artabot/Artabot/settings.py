@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [production_host] if production_host is not None else ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'editor_app.apps.EditorAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'general_app.apps.GeneralAppConfig',
-    'editor_app.apps.EditorAppConfig',
 ]
 
 MIDDLEWARE = [

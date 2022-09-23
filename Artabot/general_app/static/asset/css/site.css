@@ -416,10 +416,10 @@
     padding: 0 20px;
     width: 100%;
 }
-.report-info .report_email{
+.report-info input{
     height: 40px;
 }
-.report-info .report_text{
+.report-info textarea{
     resize: none;
     height: 100px;
 }
