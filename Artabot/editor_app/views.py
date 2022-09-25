@@ -1,7 +1,5 @@
-from email.mime import image
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
-from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,HttpRequest
 from editor_app.forms import RegisterForm
@@ -9,17 +7,17 @@ from general_app.models import Post
 # Create your views here.
 
 # @login_required
-@staff_member_required
+@login_required
 def editor(request):
     return render(request,'editor_app/editor.html')
-@staff_member_required
+@login_required
 def postdb(request):
     posts = Post.objects.all()
     context = {
         'posts': posts
     }
     return render(request,'editor_app/post_db.html',context)
-@staff_member_required
+@login_required
 def add(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -45,7 +43,7 @@ def add(request):
             return HttpResponseRedirect('/editor/postdb')
     else:
         return render(request,'editor_app/add-post.html')
-@staff_member_required
+@login_required
 def edit(request,post_id):
     post = Post.objects.get(id = post_id)
     if request.method == 'POST':
@@ -75,7 +73,7 @@ def edit(request,post_id):
         'post': post
         }
         return render(request,'editor_app/edit-post.html',context)
-@staff_member_required
+@login_required
 def delete(request,post_id):
     post = Post.objects.get(id = post_id)
     if request.method == 'POST':
@@ -83,6 +81,7 @@ def delete(request,post_id):
         return HttpResponseRedirect('/editor/postdb')
     else:
         return render(request,'editor_app/delete-post.html')
+
 def register(request: HttpRequest):
     if request.method == 'POST':
         #Post
