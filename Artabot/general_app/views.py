@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .models import Post, User_Report
 from .forms import UserReportForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -53,6 +54,7 @@ def result(request):
             return render(request,'general_app/result.html',context)
     except:
         return HttpResponseRedirect('/')
+@login_required
 def report(request):
     if request.method == 'POST':
         form = UserReportForm(request.POST)
@@ -62,10 +64,12 @@ def report(request):
             user_report.email = data['email']
             user_report.report = data['report']
             user_report.save()
-            return render(request,'general_app/thank.html')
+            return HttpResponseRedirect('/report/thank')
     else:
         form = UserReportForm()
     context = {
         'form': form
     }
     return render(request,'general_app/report.html',context)
+def thank(request):
+    return render(request,'general_app/thank.html')

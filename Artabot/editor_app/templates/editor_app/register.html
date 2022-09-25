@@ -1,0 +1,38 @@
+{% extends 'editor_app/components/base_admin.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+            <!-- Input -->
+            {% csrf_token %}
+            <center><h2>Register</h2></center>
+            <div style="list-style: none; background-color: var(--hover-color); border-radius: 2px;">
+                <p style="padding: 0 5px; color:red">{{form.non_field_errors | striptags}}</p>
+            </div>
+            <div class="editor-input">
+                <label>{{form.email.label}}</label>
+                {{form.email}}
+                {{form.email.errors}}
+            </div>
+            <div class="editor-input">
+                <label>{{form.username.label}}</label>
+                {{form.username}}
+                {{form.username.errors}}
+            </div>
+            <div class="editor-input">
+                <label>{{form.password1.label}}</label>
+                {{form.password1}}
+                {{form.password1.errors}}
+            </div>
+            <div class="editor-input">
+                <label>{{form.password2.label}}</label>
+                {{form.password2}}
+                {{form.password2.errors}}
+            </div>
+            <center><a href="{% url 'login' %}">Login now?</a></center>
+            <input type="submit" id="editor-submit" class="blue-clr" value="Login" style="padding: 5px; margin: 10px 0; border-radius: 2px;">
+        </form>
+    </div>
+{% endblock  %}

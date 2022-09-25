@@ -12,4 +12,5 @@ urlpatterns=[
     path('post/<str:post_url>',views.post,name="post"),
     path('result',views.result,name="result"),
     path('report',views.report,name="report"),
+    path('report/thank',views.thank,name="thank")
 ]

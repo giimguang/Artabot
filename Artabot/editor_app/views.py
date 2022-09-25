@@ -1,9 +1,10 @@
 from email.mime import image
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
 from django.contrib.admin.views.decorators import staff_member_required
-from multiprocessing import context
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpRequest
+from editor_app.forms import RegisterForm
 from general_app.models import Post
 # Create your views here.
 
@@ -82,3 +83,18 @@ def delete(request,post_id):
         return HttpResponseRedirect('/editor/postdb')
     else:
         return render(request,'editor_app/delete-post.html')
+def register(request: HttpRequest):
+    if request.method == 'POST':
+        #Post
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return HttpResponseRedirect('/')
+    else:
+        #Get
+        form = RegisterForm()
+    context = {
+        'form':form
+    }
+    return render(request,'editor_app/register.html',context)

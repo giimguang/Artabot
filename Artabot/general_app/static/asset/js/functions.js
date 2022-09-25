@@ -11,5 +11,5 @@ function isValid(element,errorElement,minLength = 0,message = "This field is req
 }
 const leftIcon = document.querySelector('.left-icon')
 leftIcon.addEventListener('click',function (){
-    window.location.replace('/')
+        window.location.replace('/')
 });
