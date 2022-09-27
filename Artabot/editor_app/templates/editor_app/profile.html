@@ -1,0 +1,28 @@
+{% extends "general_app/components/base.html" %}
+{% block title %}Update {{user.username}}{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <h1>Hello {{user.username}}</h1>
+        <p class="pd-5">
+            <a class="primary-button" href="{% url 'profile' %}">Update Profile</a>
+            <a class="primary-button" href="{% url 'password_change' %}">Change password</a>
+            <a class="primary-button" href="{% url 'password_reset' %}">Reset password</a>
+        </p>
+        <form action="" method="POST" id="editor-login" enctype="multipart/form-data">
+            <!-- Input -->
+            {% csrf_token %}
+            
+            <center><h2>Update Profile</h2></center>
+            <div class="editor-input">
+                <label for="id_new_password1">{{form.first_name.label}}</label>
+                {{form.first_name}}
+            </div>
+            <div class="editor-input">
+                <label for="id_new_password2">{{form.last_name.label}}</label>
+                {{form.last_name}}
+            </div>
+            <input type="submit" id="editor-submit" class="blue-clr" value="Update" style="padding: 5px; margin: 10px 0; border-radius: 2px;">
+        </form>
+    </div>
+{% endblock  %}

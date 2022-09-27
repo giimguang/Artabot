@@ -1,0 +1,13 @@
+{% extends 'editor_app/components/base_admin.html' %}
+{% load static %}
+{% block title %}Password Change Done{% endblock %}
+
+{% block container %}
+    <div class="card">
+        <h2>{{ title }}</h2>
+        <p>{{ content }}</p>
+        <p class="pd-5">
+            <a class="primary-button" href="{% url 'l/' %}">Home</a>
+        </p>
+    </div>
+{% endblock  %}

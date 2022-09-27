@@ -1,6 +1,6 @@
-from multiprocessing import context
+from django.urls import reverse
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .models import Post, User_Report
 from .forms import UserReportForm
 from django.contrib.auth.decorators import login_required

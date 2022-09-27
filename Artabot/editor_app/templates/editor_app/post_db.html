@@ -6,6 +6,9 @@
     <div class="card">
         <center style="margin: 10px 0;"><h1 class="f-600">Manage Posts</h1></center>
         <div style="overflow-x: scroll">
+            {% if flash_message %}
+                <p class="primary-button">{{ flash_message }}</p>
+            {% endif %}
             <table class="table_contain" cellspacing ="0">
                 <thead>
                     <tr>
